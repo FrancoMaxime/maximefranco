@@ -1,5 +1,5 @@
 #! /bin/sh
-# /etc/init.d/foobar
+# /etc/init.d/website
 
 # The following part always gets executed.
 echo "Start the redirection"
