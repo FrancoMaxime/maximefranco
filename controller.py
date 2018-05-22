@@ -1,12 +1,15 @@
 import web
 import traceback
 import smtplib
-#from web.wsgiserver import CherryPyWSGIServer
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.header import Header
+from web.wsgiserver import CherryPyWSGIServer
 
 GMAIL_USER = 'archein.lol@gmail.com'
 GMAIL_Recipient='franco.maxime@gmail.com'
 GMAIL_PASS = ''
-SMTP_SERVER = 'smtp.gmail.com'
+SMTP_SERVER = 'smtp.google.com'
 SMTP_PORT = 587
 
 class Index:
@@ -74,12 +77,12 @@ if __name__ == "__main__":
 			'/index','Index',
 			'/home','Index',
         )
-        """
+        
 	    ssl_cert = '/etc/letsencrypt/live/maximefranco.be/cert.pem'
         ssl_key = '/etc/letsencrypt/live/maximefranco.be/privkey.pem'
         CherryPyWSGIServer.ssl_certificate = ssl_cert
         CherryPyWSGIServer.ssl_private_key = ssl_key
-        """
+        
         app = web.application(urls, globals())
         app.notfound = notfound
         app.run()
